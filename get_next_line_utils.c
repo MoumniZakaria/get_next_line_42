@@ -6,7 +6,7 @@
 /*   By: zmoumni <zmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 15:56:56 by zmoumni           #+#    #+#             */
-/*   Updated: 2023/12/18 17:21:57 by zmoumni          ###   ########.fr       */
+/*   Updated: 2023/12/19 13:23:56 by zmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,9 @@ char	*ft_strdup(const char *src)
 {
 	char	*dup;
 	int		len;
-
+	
+	if (!src)
+		return (NULL);
 	len = ft_strlen(src);
 	dup = (char *)malloc((len + 1) * sizeof(char));
 	if (dup == 0)
@@ -75,12 +77,6 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		tmp[i++] = s2[j++];
 	return (tmp[i] = '\0', tmp);
 }
-
-
-
-
-
-
 
 char	*ft_strchr(const char *s, int c)
 {
@@ -121,20 +117,3 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	return (tbl);
 }
 
-void	*ft_calloc(size_t count, size_t size)
-{
-	char	*tmp;
-
-	if (count * size > SIZE_MAX || count == SIZE_MAX || size == SIZE_MAX)
-		return (NULL);
-	if (count == 0 || size == 0)
-	{
-		tmp = malloc(count * size);
-		return (tmp);
-	}
-	tmp = malloc(count * size);
-	if (!tmp)
-		return (NULL);
-	ft_bzero(tmp, (count * size));
-	return (tmp);
-}
