@@ -9,10 +9,14 @@ char *check_static(char *sta)
     j = 0;
     while (sta[i] != '\0')
     {
-        if (sta[i] != '\n')
-            j++;
-        return (ft_substr(0))
-        i++
+        if (sta[i] == '\n')
+        {
+            
+            return (ft_substr(sta, 0, i));
+        }
+        else
+            return (sta);
+        i++;
     }
     
 }
