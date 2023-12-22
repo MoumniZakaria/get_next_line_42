@@ -6,7 +6,7 @@
 /*   By: zmoumni <zmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 15:56:56 by zmoumni           #+#    #+#             */
-/*   Updated: 2023/12/20 18:42:01 by zmoumni          ###   ########.fr       */
+/*   Updated: 2023/12/22 16:07:54 by zmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,19 +66,18 @@ char	*ft_strjoin(char *s1, char *s2)
 	if (!s2)
 		return (ft_strdup(s1));
 	len = ft_strlen(s1) + ft_strlen(s2);
-	tmp = (char *) malloc(len + 1);
+	tmp = (char *) malloc(sizeof(char) * (len + 1));
 	if (!tmp)
-		return (NULL);
-	while (ft_strlen(s1) && s1[i])
+		return (free(s1), NULL);
+	while (s1[i])
 	{
 		tmp[i] = s1[i];
 		i++;
 	}
 	j = 0;
-	while (ft_strlen(s2) && s2[j])
+	while (s2[j])
 		tmp[i++] = s2[j++];
-	// free(s1);
-	return (tmp[i] = '\0', tmp);
+	return (tmp[i] = '\0', free(s1), tmp);
 }
 
 char	*ft_strchr(const char *s, int c)

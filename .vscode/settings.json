@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "*.c": "c",
+        "sstream": "c",
+        "get_next_line.h": "c"
+    }
+}
