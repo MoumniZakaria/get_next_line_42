@@ -6,7 +6,7 @@
 /*   By: zmoumni <zmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 18:34:35 by zmoumni           #+#    #+#             */
-/*   Updated: 2023/12/22 16:09:01 by zmoumni          ###   ########.fr       */
+/*   Updated: 2023/12/22 16:32:31 by zmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,23 +45,22 @@ char *get_next_line(int fd)
     char *rst ;
     char *buffer;
     int len;
-
-    len = 1;
     if (fd < 0 || BUFFER_SIZE < 1 || BUFFER_SIZE > INT_MAX)
         return (NULL);
     buffer = malloc((sizeof(char) * BUFFER_SIZE) + 1); // cast to sizet
     if(!buffer)
-        return(free(sta), free(buffer),NULL);
-    while (len > 0)
+        return(free(buffer), NULL);
+    while (1)
     {
+    
         if(ft_strchr(sta, '\n'))
             break;
         len = read(fd, buffer, BUFFER_SIZE);
-        buffer[len] = '\0';
         if (len == 0)
             break;
         if (len == -1)
             return (free(sta), free(buffer),NULL);
+        buffer[len] = '\0';
         sta = ft_strjoin(sta,buffer);
     }
     free(buffer);
