@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zmoumni <zmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/12 15:56:56 by zmoumni           #+#    #+#             */
-/*   Updated: 2023/12/23 09:12:39 by zmoumni          ###   ########.fr       */
+/*   Created: 2023/12/22 18:15:46 by zmoumni           #+#    #+#             */
+/*   Updated: 2023/12/22 18:27:40 by zmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 size_t	ft_strlen(char *s)
 {
@@ -77,7 +77,7 @@ char	*ft_strchr(char *s, int c)
 {
 	if (s == NULL)
 		return (NULL);
-	while (s && *s)
+	while (*s)
 	{
 		if (*s == (char)c)
 			return ((char *)s);
